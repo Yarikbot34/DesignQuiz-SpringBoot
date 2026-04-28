@@ -1,7 +1,13 @@
 package main.sbdesignquiz.models;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Order {
+    @JsonProperty("room_type")
     private String roomType;
+
+    @JsonProperty("dispatch_date")
+    private String dispatchDate;
+
     private String[] zones;
     private int area;
     private String style;
@@ -10,13 +16,13 @@ public class Order {
     private String phone;
     private String email;
     private String comment;
-    private String dispatchDate;
 
     // room_type
     public void setRoomType(String room_type) {
         this.roomType = room_type;
     }
-    public String getRoom_type() {
+    @JsonProperty("room_type")
+    public String getRoomType() {
         return roomType;
     }
 
@@ -88,6 +94,7 @@ public class Order {
     public void setDispatch_date(String dispatchDate) {
         this.dispatchDate = dispatchDate;
     }
+    @JsonProperty("dispatch_date")
     public String getDispatch_date() {
         return dispatchDate;
     }
