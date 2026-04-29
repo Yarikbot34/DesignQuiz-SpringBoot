@@ -24,7 +24,16 @@ public class quizRouter {
 
     @PostMapping("/quiz/result")
     public String handlePost(@RequestBody Order order) {
+        Orders.add(order);
         return "OK";
+    }
 
+    @DeleteMapping("quiz/orders/{id}")
+    public String deleteOrder(@PathVariable int id){
+        if (Orders.size() > id){
+            Orders.remove(id);
+            return "Removed";
+        }
+        return "Not found";
     }
 }
