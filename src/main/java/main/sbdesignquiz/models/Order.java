@@ -1,6 +1,8 @@
 package main.sbdesignquiz.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Arrays;
+
 public class Order {
     @JsonProperty("room_type")
     private String roomType;
@@ -28,7 +30,12 @@ public class Order {
 
     // zones
     public void setZones(String[] zones) {
-        this.zones = zones;
+        if (Arrays.asList(zones).contains("Полностью всё помещение")){
+            this.zones = new String[]{"Полностью всё помещение"};
+        }
+        else{
+            this.zones = zones;
+        }
     }
     public String[] getZones() {
         return zones.clone();
