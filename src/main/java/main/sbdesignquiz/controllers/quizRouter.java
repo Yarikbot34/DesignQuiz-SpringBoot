@@ -1,6 +1,7 @@
 package main.sbdesignquiz.controllers;
 
 import main.sbdesignquiz.models.Order;
+import main.sbdesignquiz.services.mailService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,7 @@ public class quizRouter {
 
     @PostMapping("/quiz/result")
     public String handlePost(@RequestBody Order order) {
+        mailService.sendEmail(order);
         Orders.add(order);
         return "OK";
     }

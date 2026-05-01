@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px 10px 0 0; text-align: left;">
+            <h1 style="color: white; margin: 0; font-size: 24px;">Ваше заявление зарегистрировано</h1>
+        </div>
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px;">
+            <!-- Исправлено: th:text внутри тега -->
+            <p style="font-size: 16px; margin-bottom: 20px;">Здравствуйте, <span th:text="${name}">Имя</span></p>
+            <p style="font-size: 16px; margin-bottom: 20px;">
+                Ваша заявка была успешно принята. Менеджер свяжется с вами в ближайшее время.
+            </p>
+            <p>ID вашего заявления:</p>
+            <div style="background: white; padding: 15px; border-left: 4px solid #667eea; margin: 20px 0;">
+                <p style="margin: 0; color: #555;"><strong th:text="${id}">ID-12345</strong></p>
+            </div>
+            <h3>Детали вашего заявления:</h3>
+
+            <b>Тип помещения:</b><br><span th:text="${room_type}">Частный дом</span><br>
+            <b>Комнаты:</b><br><span th:text="${#strings.listJoin(zones, ', ')}">Прихожая</span><br>
+            <b>Площадь:</b><br><span th:text="${area}">115</span> м²<br>
+            <b>Стиль:</b><br><span th:text="${style}">Минимализм</span><br>
+            <b>Бюджет:</b><br><span th:text="${budget}">500 000 – 1 000 000 ₽</span><br>
+            <b>Примечания:</b><br><span th:text="${comment}">12</span><br>
+
+            <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+            <p style="font-size: 14px; color: #777; margin: 0;">
+                <em>Vernicodov team</em>
+            </p>
+        </div>
+    </body>
+</html>
