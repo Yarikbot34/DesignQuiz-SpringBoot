@@ -7,9 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SbDesignQuizApplication {
 
     static {
+        try {
         io.github.cdimascio.dotenv.Dotenv dotenv = io.github.cdimascio.dotenv.Dotenv.load();
         System.setProperty("MAIL_ADDRESS", dotenv.get("MAIL_ADDRESS"));
         System.setProperty("MAIL_PASSWORD", dotenv.get("MAIL_PASSWORD"));
+        } catch (Exception _) {
+        }
     }
 
     public static void main(String[] args) {
